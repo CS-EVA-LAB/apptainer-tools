@@ -1,0 +1,57 @@
+Bootstrap: docker
+From: ubuntu:{{ VERSION }}
+Stage: build
+
+%arguments
+    VERSION=24.04
+    USERS=kie ckchang4
+    ADDITIONAL_LIBS=fish btop
+
+%setup
+
+%files
+
+%environment
+    export LC_ALL=C
+
+%post
+    alias sudo=""
+
+    # install essential libraries
+    apt update && apt upgrade -y
+    apt install -y tmux htop neovim build-essential git wget libglib2.0-0 {{ ADDITIONAL_LIBS }}
+
+    # install gh cli
+    sudo mkdir -p -m 755 /etc/apt/keyrings \
+      && out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+      && cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+      && sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
+      && sudo mkdir -p -m 755 /etc/apt/sources.list.d \
+      && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+      && sudo apt update \
+      && sudo apt install gh -y
+
+    # create folder stubs for users
+    cd /home
+    mkdir -p {{ USERS }}
+
+%runscript
+
+%startscript
+    /bin/bash
+
+%test
+    grep -q NAME=\"Ubuntu\" /etc/os-release
+    if [ $? -eq 0 ]; then
+        echo "Container base is Ubuntu as expected."
+    else
+        echo "Container base is not Ubuntu."
+        exit 1
+    fi
+
+%labels
+    Author ckc
+    Version v0.1.0
+
+%help
+    This is a definition file template for creating apptainer containers
