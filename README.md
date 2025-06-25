@@ -6,7 +6,7 @@ Apptainer is an alternative to docker or podman. It's essentially container tech
 
 ## Building apptainer images
 
-You can quickly build an image using the below command. There are arguments in the template that you can tweak🙂.
+You can quickly build an image in the .sif format using the below command. There are arguments in the template that you can tweak🙂.
 
 ```
 apptainer build -F ub24.sif apptainer-ubuntu24.def
@@ -20,7 +20,7 @@ This will build a mutable directory that apptainer can chroot into. However ther
 
 Use the below command to enter the container as root and make it writable.
 ```
-apptainer exec --writable --fakeroot sandbox-ub24
+apptainer exec --writable --fakeroot sandbox-ub24 bash
 ```
 
 
