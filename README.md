@@ -29,6 +29,8 @@ apptainer exec --writable --fakeroot sandbox-ub24 bash
 ```
 ./apptainer_start.sh
 ```
+**Note: When using H100 slurm service from NCHC, you have to additionally bind `/etc/pki/` and `/etc/ssl/` since they use a custom proxy. If not, you may encouter x509 certificate errors when accessing the Internet.**
+
 
 ## Entering a container
 
