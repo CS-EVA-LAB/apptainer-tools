@@ -2,6 +2,13 @@
 
 Apptainer is an alternative to docker or podman. It's essentially container tech for HPC. 
 
+# Before using
+
+Make sure your user session won't be killed by systemd, using either a dummy tmux session immediately after login or by running:
+```
+$ loginctl enable-linger
+```
+
 # Usage
 
 ## Building apptainer images
@@ -46,3 +53,9 @@ apptainer shell instance://YOUR_INSTANCE_NAME (e.g. ub24)
 5. Leave container
 6. Re-attach to the tmux session from the outside
 7. Use it just like any tmux session😇 (while the actual context is still inside the container)
+
+## Alternate example use case
+1. Build the image
+2. Start tmux using the `apptainer_tmux.sh` script
+3. Start to do things inside tmux right away or simply detach (tmux will still run)
+4. Use it just like any tmux session😇 (while the actual context is still inside the container)
