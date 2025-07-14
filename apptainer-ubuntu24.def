@@ -5,7 +5,7 @@ Stage: build
 %arguments
     VERSION=24.04
     USERS=kie ckchang4
-    ADDITIONAL_LIBS=fish btop
+    ADDITIONAL_LIBS=fish btop rsync
 
 %setup
 
