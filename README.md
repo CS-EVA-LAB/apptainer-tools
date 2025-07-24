@@ -5,8 +5,36 @@ Apptainer is an alternative to docker or podman. It's essentially container tech
 # Before using
 
 Make sure your user session won't be killed by systemd, using either a dummy tmux session immediately after login or by running:
-```
+```bash
 $ loginctl enable-linger
+```
+
+# Installation
+
+If `apptainer` isn't already installed my admin or you are using HPC platforms (NYCU, NCHC, etc.). You can install yourself.
+
+There are two methods: 
+
+1. Using the official recommended guide: 
+https://apptainer.org/docs/admin/main/installation.html#install-unprivileged-from-pre-built-binaries
+
+    **Note**: this method doesn't always work because the target system may be missing `cpio` or `rpm2cpio` packages, which is required by the build script (the build script extracts the directory structure from .rpm file).
+
+2. Using .deb in releases (shown below).
+
+### Using .deb in releases
+
+First, download the released .deb package from the official repo: 
+
+[Apptainer releases (https://github.com/apptainer/apptainer/releases)](https://github.com/apptainer/apptainer/releases)
+
+Then, extract the deb packages and link some directories with below command.
+
+```bash
+export APPTAINER_INSTALL_DIR="$HOME/.local/apptainer/"
+dpkg-deb --extract "{DEB_YOU_DOWNLOADED}.deb" "$APPTAINER_INSTALL_DIR"
+cd "$APPTAINER_INSTALL_DIR/usr/"
+ln -s ../etc etc && ln -s ../var var
 ```
 
 # Usage
