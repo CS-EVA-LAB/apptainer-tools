@@ -19,7 +19,7 @@ Stage: build
 
     # install essential libraries
     apt update && apt upgrade -y
-    apt install -y tmux htop neovim build-essential git wget libglib2.0-0 {{ ADDITIONAL_LIBS }}
+    apt install -y tclsh tmux htop neovim build-essential git wget libglib2.0-0 {{ ADDITIONAL_LIBS }}
 
     # install gh cli
     sudo mkdir -p -m 755 /etc/apt/keyrings \
