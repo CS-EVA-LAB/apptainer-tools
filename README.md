@@ -44,12 +44,12 @@ ln -s ../etc etc && ln -s ../var var
 You can quickly build an image in the .sif format using the below command. There are arguments in the template that you can tweak🙂.
 
 ```
-apptainer build -F ub24.sif apptainer-ubuntu24.def
+apptainer build -F ub24.sif ubuntu24.def
 ```
 **Note: This builds an immutable image, if you want to build a dev container, use below command**
 
 ```
-apptainer build -F --sandbox containers/sandbox-ub24 apptainer-ubuntu24.def
+apptainer build -F --sandbox containers/sandbox-ub24 ubuntu24.def
 ```
 This will build a mutable directory that apptainer can chroot into. However there won't be a sudo command inside of the container so you have to use fakeroot if you want to install packages or do anything requiring root privileges.
 
