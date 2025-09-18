@@ -3,9 +3,9 @@ From: ubuntu:{{ VERSION }}
 Stage: build
 
 %arguments
-    VERSION=24.04
-    USERS=user_ub24
-    ADDITIONAL_LIBS=fish btop rsync
+    VERSION=20.04
+    USERS=user_ub20
+    ADDITIONAL_LIBS=rsync 
 
 %setup
 
