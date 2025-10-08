@@ -28,6 +28,8 @@ First, download the released .deb package from the official repo:
 
 [Apptainer releases (https://github.com/apptainer/apptainer/releases)](https://github.com/apptainer/apptainer/releases)
 
+**Note: The file we want to download is usually "apptainer_{VERSION}_amd64.deb"**
+
 Then, extract the deb packages and link some directories with below command.
 
 ```bash
