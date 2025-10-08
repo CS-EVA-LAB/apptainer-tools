@@ -37,6 +37,11 @@ cd "$APPTAINER_INSTALL_DIR/usr/"
 ln -s ../etc etc && ln -s ../var var
 ```
 
+### After installation
+
+Don't forget to add `$APPTAINER_INSTALL_DIR/usr/bin` to your `$PATH` ! This step should be done or checked no matter what installation method you choose.
+Otherwise, the `apptainer` command won't be available!
+
 # Usage
 
 ## Building apptainer images
