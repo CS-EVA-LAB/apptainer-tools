@@ -5,7 +5,7 @@ Stage: build
 %arguments
     VERSION=24.04
     USERS=user_ub24
-    ADDITIONAL_LIBS=fish btop rsync
+    ADDITIONAL_LIBS=fish btop rsync unzip
 
 %setup
 
