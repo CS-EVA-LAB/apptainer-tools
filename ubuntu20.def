@@ -5,7 +5,7 @@ Stage: build
 %arguments
     VERSION=20.04
     USERS=user_ub20
-    ADDITIONAL_LIBS=rsync 
+    ADDITIONAL_LIBS=rsync zip task-spooler
 
 %setup
 
