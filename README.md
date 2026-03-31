@@ -94,3 +94,16 @@ apptainer shell instance://YOUR_INSTANCE_NAME (e.g. ub24)
 2. Start tmux using the `apptainer_tmux.sh` script
 3. Start to do things inside tmux right away or simply detach (tmux will still run)
 4. Use it just like any tmux session😇 (while the actual context is still inside the container)
+
+## Running on SLURM clusters
+
+After you have built the images, you can launch your python scripts in an Apptainer 
+container using SLURM (For documentation see [here](https://slurm.schedmd.com/documentation.html)).
+
+An example usage on the NCHC nano5 is provided in the `slurm_launch.sbatch` file.
+
+You can submit a job using the `sbatch` command:
+
+```bash
+sbatch slurm_launch.sbatch
+```
